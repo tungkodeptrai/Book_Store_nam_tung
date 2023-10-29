@@ -57,6 +57,8 @@ public class HomeServlet extends HttpServlet {
         session.setAttribute("listCategories", listCategories);
         request.setAttribute("pageControl", pageControl);
         //System.out.println(pageControl);
+        
+        // hello github
 
         request.getRequestDispatcher("views/user/homePage/homePage.jsp").forward(request, response);
     }
