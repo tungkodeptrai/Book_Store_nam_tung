@@ -32,18 +32,21 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // nam ngu lon
+
         // set utf8 to searth with vietnam languge
         request.setCharacterEncoding("UTF-8");
         response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html; charset=UTF-8");
         
+        // create session
+        HttpSession session = request.getSession();
+        
+        
         // create DAO
         categoriesDAO = new CategoriesDAO();
         bookDAO = new BookDAO();
         
-        // create session
-        HttpSession session = request.getSession();
+        
         
         // create oject page control
         PageControl pageControl = new PageControl();

@@ -22,6 +22,7 @@
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Description</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -32,6 +33,7 @@
                         <th>Price</th>
                         <th>Quantity</th>
                         <th>Description</th>
+                        <th>Action</th>
                     </tr>
                 </tfoot>
                 <tbody>
@@ -52,6 +54,17 @@
                             <td>${li.quantity}</td>
                             <!-- Description --> 
                             <td>${li.description}</td>
+                            <td>
+
+                                <!--Delete-->
+                                <i class="fa fa-trash fa-2x"
+                                   style="color: #e70808"
+                                   data-toggle="modal"
+                                   data-target="#delete-modal"
+                                   onclick="deleteBookModal(${book.id})">
+                                </i>
+
+                            </td>
                         </tr>
                     </c:forEach>
 
