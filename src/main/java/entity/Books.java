@@ -28,6 +28,8 @@ import lombok.ToString;
 public class Books {
     private int id;
     private String name;
+    private String image;
+    private int quantity;
     private String author;
     private Timestamp date_of_public;
     private int price;

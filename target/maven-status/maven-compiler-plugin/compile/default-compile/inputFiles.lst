@@ -6,4 +6,5 @@ D:\BookStore\BookStore\src\main\java\entity\Categories.java
 D:\BookStore\BookStore\src\main\java\entity\Books.java
 D:\BookStore\BookStore\src\main\java\dal\implement\BookDAO.java
 D:\BookStore\BookStore\src\main\java\constant\constant.java
+D:\BookStore\BookStore\src\main\java\controller\admin\DashboardServlet.java
 D:\BookStore\BookStore\src\main\java\entity\PageControl.java
