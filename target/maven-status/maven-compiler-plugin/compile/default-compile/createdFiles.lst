@@ -10,3 +10,4 @@ entity\Books$BooksBuilder.class
 entity\PageControl$PageControlBuilder.class
 controller\user\HomeServlet.class
 dal\implement\CategoriesDAO.class
+controller\admin\DashboardServlet.class

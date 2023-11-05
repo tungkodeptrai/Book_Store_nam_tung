@@ -70,6 +70,8 @@
 
             <!-- Logout Modal-->
         <jsp:include page="../../commonGui/admin/logOutModal.jsp" ></jsp:include>
+        <jsp:include page="../../commonGui/admin/addBookModal.jsp" ></jsp:include>
+        
 
 
         <!-- Bootstrap core JavaScript-->
