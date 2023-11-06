@@ -67,7 +67,6 @@
 
             <!-- Scroll to Top Button-->
         <jsp:include page="../../commonGui/admin/scrollTop.jsp" ></jsp:include>
-
             <!-- Logout Modal-->
         <jsp:include page="../../commonGui/admin/logOutModal.jsp" ></jsp:include>
             <!-- add Modal-->
@@ -75,6 +74,10 @@
 
         <!-- delete Modal -->
         <jsp:include page="../../commonGui/admin/deleteBookModal.jsp" ></jsp:include>
+        
+        <!-- edit Modal -->
+        <jsp:include page="../../commonGui/admin/editBookModal.jsp" ></jsp:include>
+        
 
             <!-- Bootstrap core JavaScript-->
             <script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>

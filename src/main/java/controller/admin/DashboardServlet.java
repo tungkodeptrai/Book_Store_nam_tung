@@ -65,6 +65,9 @@ public class DashboardServlet extends HttpServlet {
             case "delete":
                 delebeBook(request);
                 break;
+            case "edit":
+                editBook(request);
+                break;
             default:
                 throw new AssertionError();
         }
@@ -129,6 +132,66 @@ public class DashboardServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         // delete book by id
         bookDAO.deteteById(id);
+    }
+
+    private void editBook(HttpServletRequest request) {
+        // create oject bookDAO
+        Books book = new Books();
+        // get information
+        // get id
+        int id = Integer.parseInt(request.getParameter("id"));
+        // get name
+        String name = request.getParameter("name");
+        // get author
+        String author = request.getParameter("author");
+        // get price
+        int price = Integer.parseInt(request.getParameter("price"));
+        // get quantity
+        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        // get description
+        String description = request.getParameter("description");
+        //get categoryId
+        int categoryId = Integer.parseInt(request.getParameter("category"));
+
+        String imagePath = null;
+        try {
+
+            Part part = request.getPart("image");
+            if (part == null || part.getSize() <= 0) {
+                // Sử dụng ảnh hiện tại và cập nhật đường dẫn (imagePath)
+                String currentImage = request.getParameter("currentImage");
+                book.setImage(currentImage);
+            } else {
+                try {
+                    String path = request.getServletContext().getRealPath("/images");
+                    File dir = new File(path);
+                    //ko có đường dẫn => tự tạo ra
+                    if (!dir.exists()) {
+                        dir.mkdirs();
+                    }
+
+                    File image = new File(dir, part.getSubmittedFileName());
+                    part.write(image.getAbsolutePath());
+                    imagePath = "/BookStore/images/" + image.getName();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        //setter parameter
+        book.setId(id);
+        book.setName(name);
+        book.setAuthor(author);
+        book.setPrice(price);
+        book.setQuantity(quantity);
+        book.setDescription(description);
+        book.setCategoryId(categoryId);
+        book.setImage(imagePath);
+
+        BookDAO dao = new BookDAO();
+        dao.updateBook(book);
     }
 
 }

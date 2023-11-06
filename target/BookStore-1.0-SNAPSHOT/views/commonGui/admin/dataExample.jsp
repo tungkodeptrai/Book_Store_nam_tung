@@ -37,23 +37,23 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    <c:forEach items="${listBook}" var="li">
+                    <c:forEach items="${listBook}" var="book">
                         <tr>
                             <!-- name -->
-                            <td>${li.name}</td>
+                            <td>${book.name}</td>
                             <!-- img -->
                             <td>
                                 <img width="100px" height="100px" src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/393634678_1041601000298413_346950940742341386_n.jpg?stp=c0.93.843.843a_dst-jpg_p843x403&_nc_cat=100&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeEpB3VlUAkAuSc1SkPm9fWPXN6vGAMaeBRc3q8YAxp4FBQQid7n5J3VKVLJbrgMBnIbh_rR1gk8X2P_WbFQL8b4&_nc_ohc=__PWCoUojFQAX_haNP1&_nc_ht=scontent.fhan14-2.fna&oh=00_AfBpFQFgJcEpQ49wV410IlSSKY4VA2k0gXJqCbreEKRMzA&oe=654BF879" 
                                      alt="..." class="card-img-top">
                             </td>
                             <!-- Author -->                      
-                            <td>${li.author}</td>
+                            <td>${book.author}</td>
                             <!-- Price -->   
-                            <td>${li.price}</td>
+                            <td>${book.price}</td>
                             <!-- Quantity -->  
-                            <td>${li.quantity}</td>
+                            <td>${book.quantity}</td>
                             <!-- Description --> 
-                            <td>${li.description}</td>
+                            <td>${book.description}</td>
                             <td>
                                 <!-- edit -->
                                 <i class="fa fa-edit fa-2x"
@@ -61,22 +61,23 @@
                                    data-toggle="modal"
                                    data-target="#editBookModal"
                                    onclick="editBookModal(
-                                   ${li.id},
-                                                   '${li.name}',
-                                                   '${li.description}',
-                                                   '${li.author}',
-                                   ${li.price},
-                                   ${li.quantity},
-                                                   '${li.image}',
-                                   ${li.categoryId}'
-                                                   )">
+                                                   ${book.id},
+                                                   `${book.name}`,
+                                                   `${book.description}`,
+                                                   `${book.author}`,
+                                                   ${book.price},
+                                                   ${book.quantity},
+                                                   `${book.image}`,
+                                                   ${book.categoryId})"
+                                   ">
                                 </i>
+                                &nbsp;&nbsp;&nbsp;
                                 <!--Delete-->
                                 <i class="fa fa-trash fa-2x"
                                    style="color: #e70808"
                                    data-toggle="modal"
                                    data-target="#delete-modal"
-                                   onclick="deleteBookModal(${li.id})">
+                                   onclick="deleteBookModal(${book.id})">
                                 </i>
 
 
