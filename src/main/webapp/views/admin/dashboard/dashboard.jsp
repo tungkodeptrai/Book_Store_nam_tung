@@ -70,12 +70,14 @@
 
             <!-- Logout Modal-->
         <jsp:include page="../../commonGui/admin/logOutModal.jsp" ></jsp:include>
+            <!-- add Modal-->
         <jsp:include page="../../commonGui/admin/addBookModal.jsp" ></jsp:include>
-        
 
+        <!-- delete Modal -->
+        <jsp:include page="../../commonGui/admin/deleteBookModal.jsp" ></jsp:include>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>
+            <!-- Bootstrap core JavaScript-->
+            <script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>
         <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
         <!-- Core plugin JavaScript-->

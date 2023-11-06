@@ -55,14 +55,30 @@
                             <!-- Description --> 
                             <td>${li.description}</td>
                             <td>
-
+                                <!-- edit -->
+                                <i class="fa fa-edit fa-2x"
+                                   style="color: #469408"
+                                   data-toggle="modal"
+                                   data-target="#editBookModal"
+                                   onclick="editBookModal(
+                                   ${li.id},
+                                                   '${li.name}',
+                                                   '${li.description}',
+                                                   '${li.author}',
+                                   ${li.price},
+                                   ${li.quantity},
+                                                   '${li.image}',
+                                   ${li.categoryId}'
+                                                   )">
+                                </i>
                                 <!--Delete-->
                                 <i class="fa fa-trash fa-2x"
                                    style="color: #e70808"
                                    data-toggle="modal"
                                    data-target="#delete-modal"
-                                   onclick="deleteBookModal(${book.id})">
+                                   onclick="deleteBookModal(${li.id})">
                                 </i>
+
 
                             </td>
                         </tr>

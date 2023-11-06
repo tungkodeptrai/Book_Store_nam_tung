@@ -62,6 +62,9 @@ public class DashboardServlet extends HttpServlet {
             case "add":
                 addBook(request);
                 break;
+            case "delete":
+                delebeBook(request);
+                break;
             default:
                 throw new AssertionError();
         }
@@ -118,6 +121,14 @@ public class DashboardServlet extends HttpServlet {
 
         bookDAO.insert(book);
 
+    }
+
+    private void delebeBook(HttpServletRequest request) {
+        bookDAO = new BookDAO();
+        // getinformation
+        int id = Integer.parseInt(request.getParameter("id"));
+        // delete book by id
+        bookDAO.deteteById(id);
     }
 
 }

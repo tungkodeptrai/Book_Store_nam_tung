@@ -15,7 +15,7 @@ import java.util.List;
  * @author TNO
  */
 public class BookDAO extends GenericDAO<Books> {
-    
+
     public static void main(String[] args) {
         for (Books books : new BookDAO().findByPage(1)) {
             System.out.println(books);
@@ -49,15 +49,15 @@ public class BookDAO extends GenericDAO<Books> {
                 + "Order by [id]\n"
                 + "offset ? ROWS \n"
                 + "Fetch next ? ROWS ONLY";
-        
+
         parameterMap = new LinkedHashMap<>();
-        parameterMap.put("offset", (page - 1 ) * RECORD_PER_PAGE);
+        parameterMap.put("offset", (page - 1) * RECORD_PER_PAGE);
         parameterMap.put("fetch next", constant.constant.RECORD_PER_PAGE);
         return queryGenericDAO(Books.class, sql, parameterMap);
     }
 
     public int findTotalRecord() {
-       return findTotalRecordGenericDAO(Books.class);
+        return findTotalRecordGenericDAO(Books.class);
     }
 
     public int findTotalRecordByCategoryId(String categoryId) {
@@ -73,20 +73,20 @@ public class BookDAO extends GenericDAO<Books> {
                 + "where categoryId = ?\n"
                 + "order by  id\n"
                 + "offset ? rows\n"
-                + "fetch next ? rows only";       
+                + "fetch next ? rows only";
         parameterMap = new LinkedHashMap<>();
         parameterMap.put("categoryId", categoryId);
         parameterMap.put("offset", (page - 1) * constant.constant.RECORD_PER_PAGE);
         parameterMap.put("fetch next", constant.constant.RECORD_PER_PAGE);
         return queryGenericDAO(Books.class, sql, parameterMap);
-        
+
     }
 
     public int findTotalRecordByName(String keyword) {
         String sql = "select count(*) from Books\n"
                 + "where name like ?";
         parameterMap = new LinkedHashMap<>();
-        parameterMap.put("name","%" + keyword + "%");
+        parameterMap.put("name", "%" + keyword + "%");
         return findTotalRecordGenericDAO(Books.class, sql, parameterMap);
     }
 
@@ -97,7 +97,7 @@ public class BookDAO extends GenericDAO<Books> {
                 + "offset ? rows\n"
                 + "fetch next ? rows only";
         parameterMap = new LinkedHashMap<>();
-        parameterMap.put("name","%" + keyword + "%");
+        parameterMap.put("name", "%" + keyword + "%");
         parameterMap.put("offset", (page - 1) * constant.constant.RECORD_PER_PAGE);
         parameterMap.put("fetch next", constant.constant.RECORD_PER_PAGE);
         return queryGenericDAO(Books.class, sql, parameterMap);
@@ -105,13 +105,15 @@ public class BookDAO extends GenericDAO<Books> {
 
     @Override
     public int insert(Books book) {
-      return insertGenericDAO(book);
+        return insertGenericDAO(book);
     }
 
-   
-
-
-    
-    
+    public void deteteById(int id) {
+        String sql = "DELETE FROM [dbo].[Books]\n"
+                + "      WHERE id = ?";
+        parameterMap = new LinkedHashMap<>();
+        parameterMap.put("id", id);
+        updateGenericDAO(sql, parameterMap);
+    }
 
 }
